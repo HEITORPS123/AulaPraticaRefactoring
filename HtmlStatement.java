@@ -1,5 +1,3 @@
-import java.util.Enumeration;
-
 public class HtmlStatement extends Statement {
 
     public String getHeader(Customer aCustomer){
@@ -18,18 +16,5 @@ public class HtmlStatement extends Statement {
         + "On this rental you earned <EM>" + 
         String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
         "</EM> frequent renter points<P>";
-    }
-
-    public String value(Customer aCustomer) {
-        Enumeration rentals = aCustomer.getRentals();
-        String result = getHeader(aCustomer);
-        while (rentals.hasMoreElements()) {
-           Rental each = (Rental) rentals.nextElement();
-           //show figures for each rental
-           result += getRentalFigures(each);
-        }
-        //add footer lines
-        result += getFooter(aCustomer);
-        return result;
     }
 }

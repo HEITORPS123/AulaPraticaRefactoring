@@ -1,5 +1,3 @@
-import java.util.Enumeration;
-
 public class TextStatement extends Statement {
 
     public String getHeader(Customer aCustomer){
@@ -18,18 +16,5 @@ public class TextStatement extends Statement {
         + "You earned " +
         String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
         " frequent renter points";
-    }
-
-    public String value(Customer aCustomer) {
-        Enumeration rentals = aCustomer.getRentals();
-        String result = getHeader(aCustomer);
-        while (rentals.hasMoreElements()) {
-           Rental each = (Rental) rentals.nextElement();
-           //show figures for each rental
-           result += getRentalFigures(each);
-        }
-        //add footer lines
-        result += getFooter(aCustomer);
-        return result;
     }
 }
